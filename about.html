@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="床具家具公司關於我們，提供品牌故事、成就、製造流程與團隊介紹" />
+  <meta name="keywords" content="床具, 家具, 品牌故事, 關於我們, 成就, 製造流程" />
+  <meta name="author" content="公司名稱" />
+  <title>關於我們 - 床具家具公司</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./about.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+ <nav>
+    <div class="nav-links">
+      <div class="nav-links-left">
+        <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+      </div>
+      <div class="logo"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo"></a></div>
+      <div class="nav-links-right">
+        <a href="qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+      </div>
+    </div>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- <div class="search-icon" onclick="toggleSearchBar()"></div> -->
+    <div class="logo-m"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo">懶洋洋家居</a></div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+        <a href="qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+    </div>
+  </nav>
+  <main>
+    <!-- Section 1: 簡介 -->
+    <section id="intro">
+      <h1>關於床具家具公司</h1>
+      <p>我們致力於提供高品質的床具與家具，結合創新設計與實用功能，為您的居家空間增添舒適與美感。自成立以來，我們以客戶需求為核心，打造獨特的家居體驗。</p>
+    </section>
+
+    <!-- Section 2: 品牌故事 -->
+    <section id="story">
+      <h2>我們的品牌故事</h2>
+      <p>床具家具公司創立於 <span class="year-counter" data-year="2010">0</span> 年，源自對居家美學的熱情。我們相信，家具不僅是實用的物品，更是生活方式的體現。</p>
+      <div class="story-image"></div>
+      <p>我們的設計團隊深入研究材料與工藝，確保每件產品都兼具美觀與耐用。從最初的小型工作室到如今的行業領導者，我們始終堅持品質至上的理念，為無數家庭創造溫馨的居家環境。</p>
+    </section>
+
+    <!-- Section 3: 我們的成就 -->
+    <section id="achievements">
+      <h2>我們的成就</h2>
+      <div class="achievement-grid">
+        <div class="achievement-item">
+          <span class="counter" data-target="10000">0</span>
+          <p>個家庭圓夢成家</p>
+        </div>
+        <div class="achievement-item">
+          <span class="counter" data-target="50000">0</span>
+          <p>件床具售出</p>
+        </div>
+        <div class="achievement-item">
+          <span class="counter" data-target="20000">0</span>
+          <p>件沙發售出</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 製造流程 -->
+    <section id="process">
+      <h2>我們的製造流程</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-step="1">
+          <h3>設計研發</h3>
+          <p>我們的專業團隊結合創意與功能，打造符合現代居家需求的家具設計。</p>
+        </div>
+        <div class="timeline-item" data-step="2">
+          <h3>材料選用</h3>
+          <p>嚴選高品質、永續的木材與布料，確保產品耐用與環保。</p>
+        </div>
+        <div class="timeline-item" data-step="3">
+          <h3>精工製造</h3>
+          <p>工廠採用先進設備與精湛工藝，打造每一件家具的細節。</p>
+        </div>
+        <div class="timeline-item" data-step="4">
+          <h3>品質檢驗</h3>
+          <p>每件產品經過嚴格檢查，確保符合高標準的品質要求。</p>
+        </div>
+        <div class="timeline-item" data-step="5">
+          <h3>直接出貨</h3>
+          <p>從工廠直達客戶，縮短交付時間，提供高效服務。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 團隊介紹 -->
+    <section id="team">
+      <h2>我們的團隊</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="#" alt="團隊成員1" />
+          <h3>陳設計師</h3>
+          <p>首席設計師，專注於現代風格家具設計，擁有10年經驗。</p>
+        </div>
+        <div class="team-member">
+          <img src="#" alt="團隊成員2" />
+          <h3>林經理</h3>
+          <p>客戶服務經理，確保每位客戶獲得最佳體驗。</p>
+        </div>
+        <div class="team-member">
+          <img src="#" alt="團隊成員3" />
+          <h3>王工藝師</h3>
+          <p>資深工藝師，專精於手工家具製作。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+        <a href="/qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+        <a href="/privacy.html">隱私權保護</a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-icon" aria-label="Facebook"><img src="./img/facebook.svg" alt="facebook"></a>
+      <a href="#" class="social-icon" aria-label="Instagram"><img src="./img/instagram.svg" alt="instagram"></a>
+      <a href="#map" class="social-icon" aria-label="Youtube"><img src="./img/youtube.svg" alt="youtube"></a>
+    </div>
+    <p>聯繫我們: info@furniture.com | +886-2-1234-5678</p>
+    <p>© 2025 床具家具公司. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close mobile menu
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+      });
+    });
+
+  
+    // Number Counter Animation
+    function animateCounter(element, target, duration) {
+      let start = 0;
+      const increment = target / (duration / 16); // 60fps
+      let current = start;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          element.textContent = Math.floor(current).toLocaleString();
+          return;
+        }
+        element.textContent = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      };
+      requestAnimationFrame(updateCounter);
+    }
+
+    // Scroll Animation with Counters and Timeline Trigger
+    const sections = document.querySelectorAll('section');
+    const yearCounter = document.querySelector('.year-counter');
+    const counters = document.querySelectorAll('.counter');
+    const timeline = document.querySelector('.timeline');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (entry.target.id === 'story' && yearCounter && !yearCounter.classList.contains('animated')) {
+            yearCounter.classList.add('animated');
+            const targetYear = parseInt(yearCounter.getAttribute('data-year'));
+            animateCounter(yearCounter, targetYear, 2000); // 2 seconds
+          }
+          if (entry.target.id === 'achievements') {
+            counters.forEach(counter => {
+              if (!counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                const target = parseInt(counter.getAttribute('data-target'));
+                animateCounter(counter, target, 2000); // 2 seconds
+              }
+            });
+          }
+          if (entry.target.id === 'process' && timeline) {
+            timeline.classList.add('visible');
+            timelineItems.forEach(item => {
+              item.classList.add('visible');
+            });
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

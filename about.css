@@ -1,0 +1,326 @@
+:root {
+      --bg: #f5f5f5;
+      --section: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+      --accent: #f97316;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Serif TC', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* About Content */
+    main {
+      padding-top: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    section.visible {
+      animation: slideIn 0.6s ease forwards;
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    section:nth-child(1) { animation-delay: 0s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.4s; }
+    section:nth-child(4) { animation-delay: 0.6s; }
+    section:nth-child(5) { animation-delay: 0.8s; }
+
+    #intro {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #intro h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    #intro p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    #story {
+      padding: 4rem 2rem;
+      background: var(--section);
+      text-align: center;
+    }
+    #story h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    #story p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    .year-counter {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0 0.5rem;
+      display: inline-block;
+    }
+    .story-image {
+      width: 100%;
+      height: 300px;
+      background: #c0c0c0 center/cover;
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 8px;
+    }
+    #achievements {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--section);
+    }
+    #achievements h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .achievement-item {
+      text-align: center;
+    }
+    .achievement-item .counter {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .achievement-item p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    #process {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--bg);
+      position: relative;
+    }
+    #process h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-left: 1.7rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 1.25rem;
+      top: 0;
+      width: 4px;
+      height: 0;
+      background: var(--accent);
+      transition: height 1.5s ease;
+    }
+    .timeline.visible::before {
+      height: 100%;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      text-align: left;
+      padding-left: 2rem;
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    .timeline-item.visible {
+      animation: slideInStep 0.6s ease forwards;
+    }
+    .timeline-item:nth-child(1) { animation-delay: 0s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes slideInStep {
+      0% { opacity: 0; transform: translateX(50px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .timeline-item::before {
+      content: attr(data-step);
+      position: absolute;
+      left: -1.25rem;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .timeline-item h3 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item p {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    #team {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #team h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .team-member {
+      text-align: center;
+    }
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #c0c0c0;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+    .team-member h3 {
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    .team-member p {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      background: #333333;
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    footer .footer-links a {
+      font-size: 0.9rem;
+      transition: color .3s;
+    }
+    footer .footer-links a:hover {
+      color: var(--accent);
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .social-icon {
+      font-size: 1.5rem;
+      color: var(--muted);
+      transition: color .3s;
+    }
+    .social-icon:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        justify-content: space-between;
+      }
+      .logo {
+        position: static;
+        transform: none;
+        margin-right: auto;
+        display: block;
+      }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .search-icon { display: flex; position: absolute; right: 0.5rem; }
+      .search-bar {
+        top: -200px;
+        height: 200px;
+      }
+      .search-bar.active {
+        top: 60px;
+      }
+      .search-bar input {
+        max-width: 90%;
+      }
+      #intro h1, #story h2, #achievements h2, #process h2, #team h2 { font-size: 2rem; }
+      #intro p, #story p, #achievements p, #process p { font-size: 1rem; }
+      .year-counter, .achievement-item .counter { font-size: 2.5rem; }
+      .story-image { height: 200px; }
+      .timeline {
+        padding-left: 0;
+        padding-top: 3rem;
+      }
+      .timeline::before {
+        left: 50%;
+        width: 4px;
+        transform: translateX(-50%);
+      }
+      .timeline-item {
+        padding-left: 0;
+        padding-top: 2.5rem;
+        text-align: center;
+        transform: translateY(20px);
+      }
+      .timeline-item.visible {
+        animation: slideInStepMobile 0.6s ease forwards;
+      }
+      @keyframes slideInStepMobile {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .timeline-item::before {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+      .team-member img { width: 120px; height: 120px; }
+    }
+    @media (max-width: 480px) {
+      #intro h1, #story h2, #achievements h2, #process h2, #team h2 { font-size: 1.5rem; }
+      .year-counter, .achievement-item .counter { font-size: 2rem; }
+      .story-image { height: 150px; }
+      .team-member img { width: 100px; height: 100px; }
+      .timeline-item h3 { font-size: 1.1rem; }
+      .timeline-item p { font-size: 0.9rem; }
+    }

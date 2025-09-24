@@ -1,0 +1,91 @@
+/* QA Content */
+    main {
+      padding-top: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    section.visible {
+      animation: slideIn 0.6s ease forwards;
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    #qa-section {
+      padding: 4rem 2rem;
+      background: var(--section);
+    }
+    #qa-section h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid var(--muted);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .faq-question {
+      background: #fff;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    .faq-question:hover {
+      background: #f9f9f9;
+    }
+    .faq-question h3 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin: 0;
+    }
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .faq-icon.active {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #f9f9f9;
+    }
+    .faq-answer.active {
+      max-height: 300px; /* 調整為內容高度 */
+    }
+    .faq-answer p {
+      padding: 1rem;
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #qa-section h1 { font-size: 2rem; }
+      .faq-question h3 { font-size: 1.1rem; }
+      .faq-answer p { font-size: 1rem; }
+    }
+    @media (max-width: 480px) {
+      #qa-section h1 { font-size: 1.5rem; }
+      .faq-question h3 { font-size: 1rem; }
+      .faq-answer p { font-size: 0.9rem; }
+    }

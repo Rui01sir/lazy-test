@@ -1,0 +1,247 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="床具家具公司常見問題與解答，提供家具、空間設計相關資訊" />
+  <meta name="keywords" content="家具, 床具, 沙發, 常見問題, QA" />
+  <meta name="author" content="公司名稱" />
+  <title>常見問題 - 床具家具公司</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./qa.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-links">
+      <div class="nav-links-left">
+        <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+      </div>
+      <div class="logo"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo"></a></div>
+      <div class="nav-links-right">
+        <a href="qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+      </div>
+    </div>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- <div class="search-icon" onclick="toggleSearchBar()"></div> -->
+    <div class="logo-m"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo">懶洋洋家居</a></div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+        <a href="qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+    </div>
+    <div class="search-overlay" id="searchOverlay"></div>
+    <div class="search-bar" id="searchBar">
+      <button class="close-search" onclick="toggleSearchBar()">✕</button>
+      <input type="text" placeholder="搜尋商品..." />
+      <button onclick="performSearch()">搜尋</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Section 1: QA 內容 -->
+    <section id="qa-section">
+      <h1>常見問題與解答</h1>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>如何選擇適合的床墊硬度？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>床墊硬度因個人睡眠習慣而異。側睡者適合軟床墊，提供肩部與臀部支撐；仰睡或胃睡者適合硬床墊，保護脊椎。建議親自試躺，選擇符合身體曲線的硬度。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>小空間如何選擇家具？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>小空間建議選擇多功能家具，如沙發床或帶儲物的桌椅。使用淺色調和垂直收納，營造開闊感。避免大型家具，選擇簡約設計提升空間利用率。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>床具材質有哪幾種？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>常見材質包括記憶泡棉（貼合身體）、乳膠（透氣抗菌）、彈簧（強力支撐）。根據需求選擇：記憶泡棉適合減壓，乳膠適合過敏者，彈簧適合喜歡彈性的用戶。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>如何清潔沙發？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>布料沙發可用真空吸塵器清除灰塵，皮革沙發用濕布擦拭。避免強烈清潔劑，使用中性肥皂水輕擦污漬。定期保養可延長沙發壽命。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>客製化家具需要多久？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>客製化家具製作時間約 4-6 週，視複雜度而定。我們會在確認設計後提供準確時程，並保持溝通，讓您安心等待。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>退貨政策如何？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>我們提供 7 天鑑賞期，商品未使用可退貨。客製化商品除品質問題外不接受退貨，請在購買前確認需求。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>如何保養木質家具？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>避免陽光直射和潮濕環境，使用軟布擦拭灰塵。定期塗抹木蠟油，保持光澤。遇污漬時用溫水擦拭，避免化學清潔劑。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>運費如何計算？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>運費根據商品尺寸和地區計算，全台滿 NT$5,000 免運費。離島地區另加費用，請在結帳時確認。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>有安裝服務嗎？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>我們提供專業安裝服務，費用視商品而定。購買時可選擇自取或安裝，確保家具安全到位。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            <h3>如何選擇顏色搭配？</h3>
+            <span class="faq-icon">↓</span>
+          </div>
+          <div class="faq-answer">
+            <p>根據空間風格選擇顏色：中性色適合現代風，暖色調適合北歐風。我們的設計師可提供免費建議，歡迎聯繫。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+        <a href="/qa.html">常見問與答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
+        <a href="/privacy.html">隱私權保護</a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-icon" aria-label="Facebook"><img src="./img/facebook.svg" alt="facebook"></a>
+      <a href="#" class="social-icon" aria-label="Instagram"><img src="./img/instagram.svg" alt="instagram"></a>
+      <a href="#map" class="social-icon" aria-label="Youtube"><img src="./img/youtube.svg" alt="youtube"></a>
+    </div>
+    <p>聯繫我們: info@furniture.com | +886-2-1234-5678</p>
+    <p>© 2025 床具家具公司. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close mobile menu
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+      });
+    });
+
+    // Toggle Answer
+    function toggleAnswer(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('.faq-icon');
+      answer.classList.toggle('active');
+      icon.classList.toggle('active');
+    }
+
+    // Scroll Animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
