@@ -3,14 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="床具家具公司，提供高品質的家具設計與服務" />
+  <meta name="description" content="懶洋洋家居，提供高品質的家具設計與服務" />
   <meta name="keywords" content="床具, 家具, 設計, 家居" />
   <meta name="author" content="公司名稱" />
-  <title>床具家具公司首頁</title>
+  <title>懶洋洋家居 - 首頁</title>
+  <link rel="icon" href="./img/lazy-logo.svg"> 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./index.css">
 </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 跑馬燈容器樣式 */
+    .marquee-container {
+      background-color: #B79E90;
+      color: #F5F1E2;
+      height: 40px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    /* 跑馬燈內容樣式 */
+    .marquee {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    .marquee div {
+      height: 40px;
+      line-height: 40px;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: scrollUp 12s infinite;
+      position: absolute;
+      width: 100%;
+    }
+
+    /* 每個段落的動畫延遲 */
+    .marquee div:nth-child(1) { animation-delay: 0s; }
+    .marquee div:nth-child(2) { animation-delay: 4s; }
+    .marquee div:nth-child(3) { animation-delay: 8s; }
+
+    /* 向上滾動動畫 */
+    @keyframes scrollUp {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      10%, 30% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      40%, 100% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+
+    /* 關閉按鈕樣式 */
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 3px;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0) ;
+    }
+
+    .close-btn img{
+      width: 1rem;
+    }
+
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .marquee-container {
+        height: 35px;
+        font-size: 14px;
+      }
+
+      .marquee div {
+        height: 35px;
+        line-height: 35px;
+      }
+
+      .close-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+
+      .navbar {
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .marquee-container {
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .marquee div {
+        height: 30px;
+        line-height: 30px;
+      }
+
+      .close-btn {
+        padding: 3px 6px;
+        font-size: 10px;
+      }
+
+      .navbar {
+        font-size: 14px;
+      }
+    }
+
+  #backToTop {
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
+  display: none; /* 預設隱藏 */
+  background: #6d4511;
+  padding: .3rem;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  transform: rotate(-90deg);
+  z-index: 999;
+}
+  </style>
+</head>
 <body>
+  <button id="backToTop"><img src="./img/arrow-02.svg" alt="arrow-02-top"></button>
+  <div class="marquee-container" id="marqueeContainer">
+    <div class="marquee">
+      <div>懶洋洋家居將於2025年10月進行網站升級！</div>
+      <div>新功能即將上線，敬請期待！</div>
+      <div>聯繫我們以獲取更多資訊！</div>
+    </div>
+    <button class="close-btn" onclick="closeMarquee()"><img src="./img/close-01.svg" alt="close"></button>
+  </div>
   <nav>
     <div class="nav-links">
       <div class="nav-links-left">
@@ -63,7 +212,7 @@
     <div class="controls">
       <button class="active"></button>
       <button></button>
-      <button></button>
+      <button></button>  
     </div>
   </div>
 
@@ -93,6 +242,19 @@
         <p>探索我們的最新產品，打造您的夢想居家空間。</p>
       </div>
     </section>
+
+  <section id="highlights">
+  <div class="highlight-grid">
+    <div class="highlight-item-1">
+      <h3>懶洋洋家居如何做到綠循環</h3>
+      <a href="/products.html#beds" class="cta-button">探索更多<img src="./img/arrow-01.svg" alt="arrow-01"></a>
+    </div>
+    <div class="highlight-item-2">
+      <h3>舒適沙發新品上市</h3>
+      <a href="/products.html#sofas" class="cta-button">探索沙發<img src="./img/arrow-01.svg" alt="arrow-01"></a>
+    </div>
+  </div>
+</section>
 
     <!-- Section 3: 服務項目 -->
     <section id="services">
@@ -141,11 +303,56 @@
       </div>
     </section>
 
-    <!-- Section 5: Google 地圖 -->
-    <section id="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.684217297896!2d121.4577043150074!3d25.04524198396489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7b1c4b7e7f5%3A0x5b6b6b6b6b6b6b6b!2z5paw5YyX5biC5paw6I6K5Y2A5Lit5q2j6LevMjI056CB!5e0!3m2!1szh-TW!2stw!4v1695643200000!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
-  </main>
+    <!-- Section: 客戶評價 -->
+<section id="testimonials">
+  <h2>客戶評價</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-item">
+      <img src="./img/u0mxytu0.png" alt="林小姐頭像" class="testimonial-avatar">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <p>"懶洋洋家居的床具完全改變了我的睡眠品質，記憶泡棉設計真的太舒服了！"</p>
+      <h4>— 林小姐</h4>
+    </div>
+    <div class="testimonial-item">
+      <img src="./img/nbxhabnb.png" alt="陳先生頭像" class="testimonial-avatar">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star empty">★</span>
+      </div>
+      <p>"他們的沙發不僅時尚，還非常耐用，客廳現在是全家最愛的地方！"</p>
+      <h4>— 陳先生</h4>
+    </div>
+    <div class="testimonial-item">
+      <img src="./img/profile-01.svg" alt="王太太頭像" class="testimonial-avatar">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <p>"從選購床具到安裝，服務都非常專業，強烈推薦懶洋洋家居！"</p>
+      <h4>— 王太太</h4>
+    </div>
+  </div>
+</section>
+
+    <!-- Section 5: CTA 收尾 -->
+<section id="cta-final">
+  <h2>打造您的夢想居家</h2>
+  <h3>探索我們的精選家具與床具，立即開始您的居家美學之旅！</h3>
+  <a href="/products.html" class="cta-button">立即選購 <img src="./img/arrow-02.svg" alt=""></a>
+</section>
+
 
   <footer>
     <div class="footer-links">
@@ -287,6 +494,29 @@
 });
 
     sections.forEach(section => observer.observe(section));
+
+    function closeMarquee() {
+      document.getElementById('marqueeContainer').style.display = 'none';
+    }
   </script>
+  <script>
+  const btn = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) { 
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // 平滑回頂部
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* Products Content */
     main {
-      padding-top: 60px;
+      /* padding-top: 60px; */
       /* max-width: 1200px; */
       margin: 0 auto;
     }
@@ -22,7 +22,9 @@
       width: 100%;
       padding: 4rem 2rem;
       text-align: center;
-      background-image: url(./img/aj8ju-2qi6l.jpg);
+      background-image:
+      linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+      url(./img/aj8ju-2qi6l.jpg);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center; 
@@ -73,9 +75,11 @@
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      /* justify-items: center; */
       gap: 2rem;
     }
     .product-card {
+      width: 20rem;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

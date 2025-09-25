@@ -8,202 +8,10 @@
   <meta name="author" content="公司名稱" />
   <title>商品詳情 - 床具家具公司</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f5f5;
-      --section: #ffffff;
-      --text: #333333;
-      --muted: #666666;
-      --accent: #f97316;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Noto Serif TC', serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* Navbar */
-    nav {
-      width: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: 100;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--accent);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      width: 100%;
-      justify-content: space-between;
-    }
-    .nav-links-left,
-    .nav-links-right {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      font-weight: 500;
-      transition: color .3s;
-      color: var(--text);
-    }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      z-index: 101;
-      position: absolute;
-      right: 2.5rem;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: var(--text);
-      margin: 3px 0;
-      transition: all 0.3s ease;
-    }
-    .hamburger span:nth-child(3) {
-      width: 18px;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-      width: 25px;
-    }
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      padding: 4rem 2rem;
-      gap: 1.5rem;
-      transition: left 0.3s ease;
-      z-index: 100;
-    }
-    .mobile-menu.active {
-      left: 0;
-    }
-    .mobile-menu a {
-      font-weight: 500;
-      color: var(--text);
-      text-align: center;
-      font-size: 1.2rem;
-    }
-    .mobile-menu a:hover {
-      color: var(--accent);
-    }
-    .search-icon {
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: var(--text);
-      transition: color .3s;
-      z-index: 101;
-    }
-    .search-icon:hover {
-      color: var(--accent);
-    }
-    .search-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .search-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .search-bar {
-      position: fixed;
-      top: -200px;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      background: #ffffff;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: top 0.3s ease;
-      padding: 1rem;
-    }
-    .search-bar.active {
-      top: 60px;
-    }
-    .search-bar input {
-      width: 100%;
-      max-width: 500px;
-      padding: 0.8rem;
-      border: 1px solid var(--muted);
-      border-radius: 4px;
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-    }
-    .search-bar button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-size: 0.9rem;
-    }
-    .search-bar button:hover {
-      background: #e55a00;
-    }
-    .search-bar .close-search {
-      background: none;
-      color: var(--text);
-      font-size: 1.2rem;
-      cursor: pointer;
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-    }
-    .search-bar .close-search:hover {
-      color: var(--accent);
-    }
-
+  
+    <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./products.css">
+<style>
     /* Product Detail Content */
     main {
       padding-top: 60px;
@@ -466,29 +274,6 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem;
-        justify-content: space-between;
-      }
-      .logo {
-        position: static;
-        transform: none;
-        margin-right: auto;
-        display: block;
-      }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .search-icon { display: flex; position: absolute; right: 0.5rem; }
-      .search-bar {
-        top: -200px;
-        height: 200px;
-      }
-      .search-bar.active {
-        top: 60px;
-      }
-      .search-bar input {
-        max-width: 90%;
-      }
       #product-detail {
         grid-template-columns: 1fr;
       }
@@ -526,9 +311,6 @@
       .recommended-item h3 { font-size: 1.1rem; }
       .recommended-item .price { font-size: 0.9rem; }
       .recommended-item .btn { padding: 0.6rem 1rem; font-size: 0.8rem; }
-      .search-bar input { padding: 0.6rem; font-size: 0.9rem; }
-      .search-bar button { padding: 0.6rem 1rem; font-size: 0.8rem; }
-      .search-bar .close-search { font-size: 1rem; }
     }
   </style>
 </head>
@@ -536,15 +318,15 @@
   <nav>
     <div class="nav-links">
       <div class="nav-links-left">
-        <a href="index.html">首頁</a>
-        <a href="about.html">關於我們</a>
-        <a href="products.html">商品分類</a>
+        <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
       </div>
-      <div class="logo">床具家具</div>
+      <div class="logo"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo"></a></div>
       <div class="nav-links-right">
-        <a href="#services">服務項目</a>
-        <a href="#cases">設計案例</a>
-        <a href="#contact">聯絡我們</a>
+        <a href="qa.html">常見問答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
       </div>
     </div>
     <div class="hamburger" onclick="toggleMobileMenu()">
@@ -552,20 +334,15 @@
       <span></span>
       <span></span>
     </div>
-    <div class="search-icon" onclick="toggleSearchBar()">🔍</div>
+    <!-- <div class="search-icon" onclick="toggleSearchBar()"></div> -->
+    <div class="logo-m"><a href="/"><img src="./img/lazy-logo.svg" alt="lazy-logo">懶洋洋家居</a></div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">首頁</a>
-      <a href="about.html">關於我們</a>
-      <a href="products.html">商品分類</a>
-      <a href="#services">服務項目</a>
-      <a href="#cases">設計案例</a>
-      <a href="#contact">聯絡我們</a>
-    </div>
-    <div class="search-overlay" id="searchOverlay"></div>
-    <div class="search-bar" id="searchBar">
-      <button class="close-search" onclick="toggleSearchBar()">✕</button>
-      <input type="text" placeholder="搜尋商品..." />
-      <button onclick="performSearch()">搜尋</button>
+      <a href="/">首頁</a>
+        <a href="/about.html">關於我們</a>
+        <a href="/products.html">商品分類</a>
+        <a href="qa.html">常見問答</a>
+        <a href="/blog.html">設計案例</a>
+        <a href="/contact.html">聯繫我們</a>
     </div>
   </nav>
 
@@ -579,7 +356,7 @@
     <section id="product-detail">
       <div class="product-main">
         <div class="product-image">
-          <img src="#" alt="商品圖片" id="product-image" />
+          <img src="./img/empty-modern-room-with-furniture.jpg" alt="商品圖片" id="product-image" />
         </div>
         <div class="product-info">
           <h1 id="product-title">商品名稱</h1>
@@ -599,7 +376,7 @@
       <div class="hot-sales-sidebar">
         <h2>熱銷商品</h2>
         <div class="hot-sale-item">
-          <img src="#" alt="經典雙人床" />
+          <img src="./img/bed-still-life.jpg" alt="經典雙人床" />
           <h3><a href="product-detail.html?id=bed1">經典雙人床</a></h3>
         </div>
         <div class="hot-sale-item">
@@ -607,15 +384,15 @@
           <h3><a href="product-detail.html?id=sofa1">現代三人沙發</a></h3>
         </div>
         <div class="hot-sale-item">
-          <img src="#" alt="北歐風餐桌" />
+          <img src="./img/serving-table.jpg" alt="北歐風餐桌" />
           <h3><a href="product-detail.html?id=table1">北歐風餐桌</a></h3>
         </div>
         <div class="hot-sale-item">
-          <img src="#" alt="豪華加大床" />
+          <img src="./img/empty-modern-room-with-furniture.jpg" alt="豪華加大床" />
           <h3><a href="product-detail.html?id=bed2">豪華加大床</a></h3>
         </div>
         <div class="hot-sale-item">
-          <img src="#" alt="簡約書桌" />
+          <img src="/img/vertical-books-plant.jpg" alt="簡約書桌" />
           <h3><a href="product-detail.html?id=table2">簡約書桌</a></h3>
         </div>
       </div>
@@ -626,25 +403,25 @@
       <h2>推薦商品</h2>
       <div class="recommended-items">
         <div class="recommended-item">
-          <img src="#" alt="豪華加大床" />
+          <img src="./img/empty-modern-room-with-furniture.jpg" alt="豪華加大床" />
           <h3>豪華加大床</h3>
           <div class="price">NT$45,000</div>
           <a href="product-detail.html?id=bed2" class="btn">查看詳情</a>
         </div>
         <div class="recommended-item">
-          <img src="#" alt="北歐風餐桌" />
+          <img src="./img/serving-table.jpg" alt="北歐風餐桌" />
           <h3>北歐風餐桌</h3>
           <div class="price">NT$18,000</div>
           <a href="product-detail.html?id=table1" class="btn">查看詳情</a>
         </div>
         <div class="recommended-item">
-          <img src="#" alt="現代三人沙發" />
+          <img src="./img/agvsi-kckcn.webp" alt="現代三人沙發" />
           <h3>現代三人沙發</h3>
           <div class="price">NT$35,000</div>
           <a href="product-detail.html?id=sofa1" class="btn">查看詳情</a>
         </div>
         <div class="recommended-item">
-          <img src="#" alt="簡約書桌" />
+          <img src="./img/vertical-books-plant.jpg" alt="簡約書桌" />
           <h3>簡約書桌</h3>
           <div class="price">NT$12,000</div>
           <a href="product-detail.html?id=table2" class="btn">查看詳情</a>
@@ -688,34 +465,7 @@
       });
     });
 
-    // Search Bar Toggle
-    function toggleSearchBar() {
-      const searchBar = document.getElementById('searchBar');
-      const searchOverlay = document.getElementById('searchOverlay');
-      searchBar.classList.toggle('active');
-      searchOverlay.classList.toggle('active');
-    }
-
-    // Perform Search (placeholder)
-    function performSearch() {
-      const input = document.querySelector('.search-bar input').value;
-      if (input) {
-        alert(`搜尋: ${input}`);
-      } else {
-        alert('請輸入搜尋關鍵字');
-      }
-    }
-
-    // Close search bar on overlay click
-    document.getElementById('searchOverlay').addEventListener('click', () => {
-      toggleSearchBar();
-    });
-
-    // Prevent closing when clicking inside search bar
-    document.getElementById('searchBar').addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
+  
     // Add to Cart (placeholder)
     function addToCart() {
       alert('已加入購物車！');
